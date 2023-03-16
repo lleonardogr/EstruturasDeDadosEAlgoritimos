@@ -19,13 +19,11 @@ Print a message:
 "There are <count> different telephone numbers in the records."
 """
 def check_unique_phones(table,unique_phones):
-    for column in table:
-        if column[0] not in unique_phones:
-            unique_phones.append(column[0])
-        if column[1] not in unique_phones:
-            unique_phones.append(column[1])
+    for item in table:
+        unique_phones.add(item[0])
+        unique_phones.add(item[1])
 
-unique_phones=[]
+unique_phones=set()
 check_unique_phones(texts, unique_phones)
 check_unique_phones(calls, unique_phones)
 

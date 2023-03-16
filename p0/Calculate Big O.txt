@@ -1,20 +1,19 @@
 TASK 0:
     Since the Task0 always take the first line of the texts, the variation of the file doesn't 
     impact the complexity of the script, so:
-    - WorstCase Cenario = 14
-    - Big O = O(14)
+    - WorstCase Cenario = 6
+    - Big O = O(6) Or O(1)
 
 
 TASK 1:
     Since we have just one loop, each line on the files will make the check on the function so:
-    - WorstCase Cenario = 5213*4 + 9073*4
-    - Big O = O(4n)
+    - WorstCase Cenario = 5213 + 9073
+    - Big O = O(14286) or O(n)
 
 TASK 2:
-    Since we have just one loop but we're checking our list two times, 
-    each line on the files will make the check on the function so:
-    - WorstCase Cenario = 5213^3 + 9073^3
-    - Big O = O(n^3)
+    Since we have just one loop, each line on the files will make the check on the function so:
+    - WorstCase Cenario = 5213 + 9073
+    - Big O = O(14286) or O(n)
 
 TASK 3:
     Part A:
@@ -30,5 +29,5 @@ TASK 3:
 TASK 4:
     Since we have just one loop but we're checking our list two times, 
     each line on the files will make the check on the function so:
-    - WorstCase Cenario = 5213^3 + 9073^3
-    - Big O = O(n^3)
+    - WorstCase Cenario = 5213^2 + 9073^2
+    - Big O = O(n^2)
