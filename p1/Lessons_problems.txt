@@ -1,0 +1,149 @@
+Lesson 1 - LRU
+    walkthrough on how to implement an LRU cache in Python:
+
+    1 - I had to define a data structure to store the cache items. 
+    A doubly linked list is the common choice for implementing an LRU cache. 
+    The list should keep track of the order in which the elements were accessed, 
+    so that we can remove the least recently used element when the cache reaches its maximum capacity.
+
+    2 - I need to define a Node class to represent the connected list nodes. 
+    Each node must contain a value (the cache item) as well as pointers to the previous and next node in the list.
+
+    3 - Next, I had to to define an LRUCache class that will use the connected list to implement the LRU cache. 
+    The class must initialize with a maximum capacity for the cache and an empty dictionary to store the items. 
+    The dictionary must map keys (the cache keys) to the corresponding nodes in the connected list.
+
+    4 - The LRUCache class should also have two methods for updating the order of elements in the connected list. 
+    The move_to_end method should move an existing node to the end of the list (i.e. make it the most recent), 
+    while the remove_node method should remove a node from the list.
+
+    5 - The get method must retrieve an item from the cache, if it exists, and update its position in the connected list. 
+    If the item is not in the cache, it should return None.
+
+    6 - The method must add a new item to the cache. 
+    If the item is already out of cache, it should update its position in the connected list. 
+    If the cache is full, you should remove the least recently used item before adding the new item.
+
+    Time complexity:
+        Accessing a key-value pair: O(1)
+        Adding a new key-value pair: O(1)
+    Space complexity: O(capacity), where capacity is the maximum number of key-value pairs that can be stored in the cache
+
+Lesson 2 - Recursion file searcher:
+
+    1 - First, I had to define a function that recursively traverses a directory and returns a list of all files in the directory and their subdirectories. 
+    We can use the os library to list the contents of the directory and the os.path library to get information about the files.
+
+    2 - Inside the recursive function, I had to iterate over all items in the current directory. 
+    If an item is a directory, we call the function recursively on that directory to get all the files in it and its 
+    subdirectories. If it's a file, we check to see if the file has an extension, and if it does, we add the extension 
+    to a list of found extensions.
+
+    3 - I had to use a data structure to store the found file extensions. A list is a common choice for this.
+
+    4 - When the recursive function finishes, we can return the list of found file extensions.
+
+    Time complexity:
+        Recursively searching a directory: O(n), where n is the number of files in the directory and its subdirectories
+        Checking the extension of a file: O(1)
+    Space complexity: O(d), where d is the maximum depth of the directory hierarchy
+
+
+Lesson 3 - Huffman Coding
+
+    1 - First, I had to create a frequency table for the input data. 
+    We can use a dictionary to keep track of the frequency of each character in the input data.
+
+    2 - Next, I had to build a Huffman tree from the frequency table. We can do this by creating a heap of nodes, 
+    where each node represents a character and its frequency, 
+    and combining the two nodes with the lowest frequency at each step to create a new node until we have only one root node.
+
+    3 - Once we have the Huffman tree, I had to assign a binary code to each character based on its position in the tree. 
+    We can do this by traversing the tree and assigning a "0" for each left branch and a "1" for each right branch. 
+    We can store these codes in a dictionary.
+
+    4 - Finally, I had to encode the input data using the binary codes assigned to each character. 
+    We can do this by replacing each character in the input data with its corresponding binary code and concatenating 
+    the codes together.
+
+    Time complexity:
+        Building the frequency table: O(n), where n is the length of the input string
+        Building the Huffman tree: O(n log n), where n is the number of unique characters in the input string
+        Generating the Huffman codes: O(n), where n is the number of unique characters in the input string
+        Encoding the input string: O(n), where n is the length of the input string
+        Decoding the encoded string: O(n), where n is the length of the encoded string
+    Space complexity: O(n), where n is the number of unique characters in the input string
+
+Lesson 4 - Active directory
+    1 - First, I had to define a function to search for a user in a given group or supergroup. 
+    The function should take two arguments: the user ID we are searching for and the group or supergroup we are searching in.
+
+    2 - The function should check if the given group or supergroup contains the user ID we are searching for. 
+    If it does, we can return the group or supergroup.
+
+    3 - If the user ID is not in the current group or supergroup, 
+    I had to recursively search its subgroups. 
+    We can do this by iterating through the subgroups of the current group or supergroup and calling the search 
+    function on each one.
+
+    4 - If the user ID is not found in any of the subgroups, 
+    we can return None to indicate that the user was not found in the current group or any of its subgroups.
+
+    Time complexity:
+        Searching for a user in a group: O(m), where m is the number of users in the group
+        Searching for a user in a supergroup: O(n), where n is the number of subgroups in the supergroup
+        Searching for a user in a subgroup: O(k), where k is the number of users in the subgroup
+    Total time complexity: O(n * (m + k)), where n is the number of subgroups in the supergroup, m is the number of users in the group, and k is the number of users in the subgroup
+    Space complexity: O(n), where n is the maximum depth of the subgroup hierarchy
+
+Lesson 5 - Blockchain
+
+    1 - First, I had to define the basic structure of a block. Each block should contain the following fields:
+
+        timestamp - the time when the block was added to the blockchain
+        data - the data stored in the block
+        previous_hash - the hash of the previous block in the blockchain
+        
+    2 - I had to define a function to calculate the hash of a block. We can use the SHA-256 algorithm for this.
+
+    3 - Next, I had to define a function to create the first block in the blockchain, also known as the "genesis block". 
+    This block should have a timestamp of the current time, an arbitrary data value, and a previous hash value of all zeros.
+
+    4 - I had to define a function to add a new block to the blockchain. 
+    This function should take the data to be stored in the new block as an argument, 
+    and should calculate the hash of the previous block in the blockchain. 
+    It should then create a new block with the appropriate timestamp, data, and previous hash, 
+    and add it to the end of the blockchain.
+
+    5 - Finally, I had to define a function to check the integrity of the blockchain. 
+    This function should iterate over all blocks in the blockchain and verify 
+    that the hash of each block matches the hash of the previous block in the chain.
+
+    Time complexity:
+        Creating a block: O(1)
+        Adding a block: O(1)
+        Verifying the blockchain: O(n), where n is the number of blocks in the chain
+    Space complexity: O(n), where n is the number of blocks in the chain
+
+6 - Union and Intersection
+
+    1 - First, I had to define the basic structure of a linked list node. Each node should contain the following fields:
+
+        data - the data stored in the node
+        next - a reference to the next node in the list
+    2 - I had to define a function to create a new node in the linked list. 
+    This function should take the data to be stored in the new node as an argument, and should return a 
+    new node object with the appropriate data and a next reference set to None.
+
+    3 - I had to define a function to compute the union of two linked lists. 
+    This function should take two linked lists as arguments and return a new linked list containing all 
+    elements that are in either of the input lists.
+
+    4 - I had to define a function to compute the intersection of two linked lists. 
+    This function should take two linked lists as arguments and return a new linked list containing 
+    all elements that are in both of the input lists.
+
+    Time complexity:
+        Union: O(m+n) in the average and worst cases, where m and n are the lengths of the input lists.
+        Intersection: O(m*n) in the worst case, where m and n are the lengths of the input lists. This is because we need to iterate over each element in one list for each element in the other list.
+    Space complexity: O(min(m,n))
