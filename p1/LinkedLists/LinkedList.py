@@ -34,7 +34,6 @@ class LinkedList:
         while current is not None:
             print(current.value, end=' -> ')
             current = current.next
-        print("None")
 
     # Remover elementos: 
     # Para remover um elemento da lista ligada, 
@@ -87,7 +86,7 @@ class LinkedList:
             current = current.next
             if current.value == value:
                 return current
-        raise ValueError("Value not found in the list.")
+        return None
     
     # Pop: Pega o primeiro item da lista e remove da lista
     def pop(self):
@@ -129,6 +128,30 @@ class LinkedList:
             node = node.next
 
         return size
+    
+    # Iteração na lista linkada para fazer for ou foreach
+    def __iter__(self):
+        node = self.head
+        while node:
+            yield node.value
+            node = node.next
+            
+    # Imprimir uma lista de string da lista linkada
+    def __repr__(self):
+        return str([v for v in self])
+    
+    def reverse(self):
+        new_list = LinkedList()
+        prev_node = None
+        for value in self:
+            new_node = Node(value)
+            new_node.next = prev_node
+            prev_node = new_node
+
+        new_list.head = prev_node
+        return new_list
+
+
 # Exemplo
 
 # Criando uma lista ligada vazia
@@ -178,3 +201,6 @@ assert my_linked_list.search(40).value == 40
 
 # Testando o método size
 assert my_linked_list.size() == 3
+
+print(my_linked_list.traverse())
+print(my_linked_list.reverse())
