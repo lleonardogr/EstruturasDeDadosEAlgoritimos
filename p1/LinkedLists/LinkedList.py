@@ -65,7 +65,70 @@ class LinkedList:
             list_.append(current.value)
             current = current.next
         return list_
+    
+    # Prepend: Adiciona um item no inicio da lista linkada
+    def prepend(self, value):
+        if self.head is None:
+            self.head = Node(value)
+        else:
+            second = self.head
+            self.head = Node(value)
+            self.head.next = second
+    
+    # Search: Procura um item na lista
+    def search(self, value):
+        if self.head is None:
+            return None
+        
+        current = self.head
+        if current.value == value:
+            return current
+        while current.next:
+            current = current.next
+            if current.value == value:
+                return current
+        raise ValueError("Value not found in the list.")
+    
+    # Pop: Pega o primeiro item da lista e remove da lista
+    def pop(self):
+        if self.head is None:
+            return None
+        
+        node = self.head
+        self.head = self.head.next
+        return node.value
+    
+    # Insert value at pos position in the list. If pos is larger than the
+    # length of the list, append to the end of the list.
+    def insert(self, value, pos):
+        if self.head is None:
+            self.head = Node(value)
 
+        if pos == 0:
+            self.prepend(value)
+            return
+        else:
+            item_pos = 1
+            current = self.head
+            while current.next:
+                if item_pos == pos:
+                    new_node = Node(value)
+                    new_node.next = current.next
+                    current.next = new_node
+                    return
+                current = current.next
+                item_pos = item_pos + 1
+            current.next = Node(value)
+
+    # Return the size or length of the linked list.
+    def size(self):
+        size = 0
+        node = self.head
+        while node:
+            size += 1
+            node = node.next
+
+        return size
 # Exemplo
 
 # Criando uma lista ligada vazia
@@ -91,3 +154,27 @@ print(my_linked_list.head.next.next.value)
 
 # Exibindo os elementos como lista
 print(my_linked_list.toList())
+
+# Criando uma lista ligada vazia
+my_linked_list = LinkedList()
+
+# Testando o método prepend
+my_linked_list.prepend(30)
+my_linked_list.prepend(20)
+my_linked_list.prepend(10)
+assert my_linked_list.head.value == 10
+
+# Testando o método search
+assert my_linked_list.search(20).value == 20
+assert my_linked_list.search(40) is None
+
+# Testando o método pop
+assert my_linked_list.pop() == 10
+assert my_linked_list.head.value == 20
+
+# Testando o método insert
+my_linked_list.insert(40, 2)
+assert my_linked_list.search(40).value == 40
+
+# Testando o método size
+assert my_linked_list.size() == 3
