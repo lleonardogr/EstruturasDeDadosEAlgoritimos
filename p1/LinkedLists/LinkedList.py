@@ -150,6 +150,19 @@ class LinkedList:
 
         new_list.head = prev_node
         return new_list
+    
+    # isCircular: Determine whether the Linked List is circular or not
+    def iscircular(self):
+        slow = self.head
+        fast = self.head
+
+        while fast is not None and fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+
+            if slow == fast:
+                return True
+        return False
 
 
 # Exemplo
@@ -204,3 +217,21 @@ assert my_linked_list.size() == 3
 
 print(my_linked_list.traverse())
 print(my_linked_list.reverse())
+
+# Crie uma lista ligada não circular
+non_circular_list = LinkedList()
+non_circular_list.prepend(30)
+non_circular_list.prepend(20)
+non_circular_list.prepend(10)
+
+# Crie uma lista ligada circular
+circular_list = LinkedList()
+circular_list.prepend(30)
+circular_list.prepend(20)
+circular_list.prepend(10)
+circular_list.head.next.next.next = circular_list.head
+
+# Teste a função is_circular_linked_list
+assert not non_circular_list.iscircular()
+assert circular_list.iscircular()
+
