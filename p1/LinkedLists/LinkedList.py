@@ -5,6 +5,9 @@ class Node:
     def __init__(self,value):
         self.value = value
         self.next = None
+    
+    def __repr__(self):
+        return str(self.value)
 
 # Lista ligada (Linked List): 
 # A lista ligada é uma estrutura de dados composta por uma sequência de 
@@ -235,3 +238,24 @@ circular_list.head.next.next.next = circular_list.head
 assert not non_circular_list.iscircular()
 assert circular_list.iscircular()
 
+
+# This function that it merges the two linked lists in a single, sorted linked list.
+def merge(list1: LinkedList, list2: LinkedList):
+    array_complete = list(set(list1.toList() + list2.toList()))
+    linked_list = LinkedList()
+    for item in array_complete:
+        linked_list.append(item)
+    return linked_list
+    
+
+list1 = LinkedList()
+list1.append(1)
+list1.append(3)
+list1.append(5)
+
+list2 = LinkedList()
+list2.append(2)
+list2.append(4)
+list2.append(6)
+
+merged_list = merge(list1, list2)
