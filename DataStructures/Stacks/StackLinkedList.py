@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, 'C:/Users/lleon/OneDrive/Documentos/Udacity/DataStructuresAndAlgorithims/Projeto 1/p1/LinkedLists')
+sys.path.insert(0, 'C:/Users/lleon/OneDrive/Documentos/Udacity/DataStructuresAndAlgorithims/Projeto 1/DataStructures/LinkedLists')
 
 from LinkedList import Node, LinkedList
 
@@ -33,6 +33,11 @@ class Stack:
         if self.is_empty():
             return None
         return self.head.value
+    
+    def top(self):
+        if self.head is None:
+            return None
+        return self.head.data
 
 
 def testStack():
