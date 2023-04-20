@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(0, 'C:/Users/lleon/OneDrive/Documentos/Udacity/DataStructuresAndAlgorithims/Projeto 1/DataStructures/LinkedLists')
+
 class Queue: 
  def __init__(self):
         self.head = None
