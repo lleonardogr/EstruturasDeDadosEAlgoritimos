@@ -1,5 +1,5 @@
 Link do video:
-https://youtu.be/B4xSWkPq_To
+https://www.youtube.com/watch?v=B4xSWkPq_To
 
 - Pré-Requisitos
 Python instalado: Verifique se o Python está instalado em seu sistema. Você pode verificar isso abrindo o terminal (ou prompt de comando no Windows) e digitando python --version ou python3 --version.
