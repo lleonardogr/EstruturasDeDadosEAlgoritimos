@@ -129,7 +129,7 @@ class LinkedList:
                 item_pos = item_pos + 1
             current.next = Node(value)
 
-    # Return the size or length of the linked list.
+    # Retorna o tamanho da lista 
     def size(self):
         size = 0
         node = self.head
@@ -219,7 +219,7 @@ class LinkedList:
             result_tail = result_tail.next
             l2 = l2.next
 
-        result_list.head = result_list.head.next  # Skip the initial dummy node
+        result_list.head = result_list.head.next
         result_list.reverse()
         return result_list
 
