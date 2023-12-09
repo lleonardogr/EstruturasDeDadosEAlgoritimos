@@ -1,5 +1,5 @@
 Link do video:
-https://www.youtube.com/watch?v=B4xSWkPq_To
+https://youtu.be/KNXyiNM61i4
 
 - Pré-Requisitos
 Python instalado: Verifique se o Python está instalado em seu sistema. Você pode verificar isso abrindo o terminal (ou prompt de comando no Windows) e digitando python --version ou python3 --version.
@@ -30,11 +30,11 @@ Execute o script: Digite o seguinte comando no terminal:
 
 bash
 Copy code
-python Calculadora.py
-ou, em alguns sistemas: python3 Calculadora.py
+python piramide.py
+ou, em alguns sistemas: python3 piramide.py
 
 Se você já tiver o Python dentro de suas variavéis de ambiente, apenas é necessário escrever:
-python3 Calculadora.py ou python Calculadora.py
+python3 piramide.py ou python piramide.py
 
 Visualize a saída: Assim como no VSCode, a saída do script será exibida no terminal.
 
